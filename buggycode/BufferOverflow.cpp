@@ -87,7 +87,7 @@ void demoAdjacentMemoryOverflow(char* userName, char* password) {
 	buf[sizeof(buf) - 1] = '\0';          // We will copy only characters which fits into buf
 
 													  // Now print username to standard output - nothing sensitive, right?
-	printf(message, "Checking '%s' password\n", buf);
+	snprintf(message, sizeof(message), "Checking '%s' password\n", buf);
 	printf("%s", message);
 	if (strcmp(password, realPassword) == 0) {
 		printf("Correct password.\n");
